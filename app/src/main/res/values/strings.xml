@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SmartPlug</string>
+    <string name="title_A">ESP001 A</string>
+    <string name="title_B">ESP001 B</string>
+    <string name="title_C">ESP001 C</string>
+    <string name="setTimer">Set timer</string>
+
+    <string name="title_home">SMART K103</string>
+
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="zero">0</string>
+    <string name="timer">Timer</string>
+    <string name="set_a_timer">Set a timer</string>
+    <string name="refresh">refresh</string>
+
+</resources>

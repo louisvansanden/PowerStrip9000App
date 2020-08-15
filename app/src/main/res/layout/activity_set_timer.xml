@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setTimer">
+
+    <Button
+        android:id="@+id/btnHourDecPlus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:width="40dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#FFFFFF"
+        android:text="@string/plus"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtHourDec"
+        app:layout_constraintStart_toStartOf="@+id/txtHourDec"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnHourUnitPlus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:width="20dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#FFFFFF"
+        android:text="@string/plus"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/txtMinutesDec"
+        app:layout_constraintStart_toEndOf="@+id/txtHourDec"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnMinutesUnitPlus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#FFFFFF"
+        android:text="@string/plus"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtMinutesUnit"
+        app:layout_constraintStart_toEndOf="@+id/txtMinutesDec"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnMinutesDecPlus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:width="20dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#FFFFFF"
+        android:text="@string/plus"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtMinutesDec"
+        app:layout_constraintStart_toStartOf="@+id/txtMinutesDec"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/txtHourDec"
+        android:layout_width="101dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:width="80dp"
+        android:autofillHints="0"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="@string/zero"
+        android:inputType="number"
+        android:text="@string/zero"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/txtHourUnit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHourDecPlus" />
+
+    <EditText
+        android:id="@+id/txtMinutesDec"
+        android:layout_width="101dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:width="80dp"
+        android:autofillHints="0"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="@string/zero"
+        android:inputType="number"
+        android:text="@string/zero"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/txtMinutesUnit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txtHourUnit"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinutesDecPlus" />
+
+    <EditText
+        android:id="@+id/txtHourUnit"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:width="80dp"
+        android:autofillHints="0"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="@string/zero"
+        android:inputType="number"
+        android:text="@string/zero"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/txtMinutesDec"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txtHourDec"
+        app:layout_constraintTop_toBottomOf="@+id/btnHourUnitPlus" />
+
+    <EditText
+        android:id="@+id/txtMinutesUnit"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:width="80dp"
+        android:autofillHints="0"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="@string/zero"
+        android:inputType="number"
+        android:text="@string/zero"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txtMinutesDec"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinutesUnitPlus" />
+
+    <Button
+        android:id="@+id/btnMinutesDecMin"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#FFFFFF"
+        android:text="@string/minus"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtMinutesDec"
+        app:layout_constraintStart_toStartOf="@+id/txtMinutesDec"
+        app:layout_constraintTop_toBottomOf="@+id/txtMinutesDec" />
+
+    <Button
+        android:id="@+id/btnMinutesUnitMin"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:width="20dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#FFFFFF"
+        android:text="@string/minus"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtMinutesUnit"
+        app:layout_constraintStart_toEndOf="@+id/txtMinutesDec"
+        app:layout_constraintTop_toBottomOf="@+id/txtMinutesUnit" />
+
+    <Button
+        android:id="@+id/btnHourUnitMin"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:width="20dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#FFFFFF"
+        android:text="@string/minus"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/txtMinutesDec"
+        app:layout_constraintStart_toEndOf="@+id/txtHourDec"
+        app:layout_constraintTop_toBottomOf="@+id/txtHourUnit" />
+
+    <Button
+        android:id="@+id/btnHourDecMin"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:width="40dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#FFFFFF"
+        android:text="@string/minus"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtHourDec"
+        app:layout_constraintStart_toStartOf="@+id/txtHourDec"
+        app:layout_constraintTop_toBottomOf="@+id/txtHourDec" />
+
+    <Button
+        android:id="@+id/setTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/setTimer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinutesDecMin" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/set_a_timer"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
