@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String deviceId = id;
 
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        RequestQueue requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
         String url = Secrets.IP + "database/getName.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkStatusDevice(String id) {
         final String deviceId = id;
 
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        RequestQueue requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
         String url = Secrets.IP + "database/getCurrentStatus.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String deviceId = id;
 
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        RequestQueue requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
         String url = Secrets.IP + "database/toggleState.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
