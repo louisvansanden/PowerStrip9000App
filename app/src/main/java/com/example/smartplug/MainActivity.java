@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -101,6 +102,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setTimer("ESP001-C");
+            }
+        });
+
+        btnA.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                turnOff("ESP001");
+                return true;
+            }
+        });
+        btnB.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                turnOff("ESP001");
+                return true;
+            }
+        });
+        btnC.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                turnOff("ESP001");
+                return true;
             }
         });
 
@@ -237,65 +260,146 @@ public class MainActivity extends AppCompatActivity {
 
     private void toggleState(String id) {
 
-        final String deviceId = id;
+        if (id.equals("ESP001")){
+            String[] ids = new String[]{"ESP001-A", "ESP001-B", "ESP001-C"};
+            for (String thisId : ids){
+                toggleState(thisId);
+            }
 
-        RequestQueue requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
-        String url = Secrets.IP + "database/toggleState.php";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                if (response.equals("on")){
-                    switch (deviceId) {
-                        case "ESP001-A":
-                            findViewById(R.id.statusA).setBackgroundColor(Color.GREEN);
-                            break;
-                        case "ESP001-B":
-                            findViewById(R.id.statusB).setBackgroundColor(Color.GREEN);
-                            break;
-                        case "ESP001-C":
-                            findViewById(R.id.statusC).setBackgroundColor(Color.GREEN);
-                            break;
-                    }
+        } else {
 
-                } else {
-                    switch (deviceId) {
-                        case "ESP001-A":
-                            findViewById(R.id.statusA).setBackgroundColor(Color.RED);
-                            break;
-                        case "ESP001-B":
-                            findViewById(R.id.statusB).setBackgroundColor(Color.RED);
-                            break;
-                        case "ESP001-C":
-                            findViewById(R.id.statusC).setBackgroundColor(Color.RED);
-                            break;
+            final String deviceId = id;
+
+            RequestQueue requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
+            String url = Secrets.IP + "database/toggleState.php";
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    if (response.equals("on")) {
+                        switch (deviceId) {
+                            case "ESP001-A":
+                                findViewById(R.id.statusA).setBackgroundColor(Color.GREEN);
+                                break;
+                            case "ESP001-B":
+                                findViewById(R.id.statusB).setBackgroundColor(Color.GREEN);
+                                break;
+                            case "ESP001-C":
+                                findViewById(R.id.statusC).setBackgroundColor(Color.GREEN);
+                                break;
+                        }
+
+                    } else {
+                        switch (deviceId) {
+                            case "ESP001-A":
+                                findViewById(R.id.statusA).setBackgroundColor(Color.RED);
+                                break;
+                            case "ESP001-B":
+                                findViewById(R.id.statusB).setBackgroundColor(Color.RED);
+                                break;
+                            case "ESP001-C":
+                                findViewById(R.id.statusC).setBackgroundColor(Color.RED);
+                                break;
+                        }
                     }
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println(error.getMessage());
-                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        }){
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    System.out.println(error.getMessage());
+                    Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }) {
 
-            @Override
-            protected Map<String,String> getParams(){
-                Map<String,String> params=new HashMap<String, String>();
-                params.put("id", deviceId);
-                return params;
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("id", deviceId);
+                    return params;
+                }
+
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("Content-Type", "application/x-www-form-urlencoded");
+                    return params;
+                }
+            };
+
+            requestQueue.add(stringRequest);
+        }
+    }
+
+    private void turnOff(String id) {
+        if (id.equals("ESP001")){
+            String[] ids = new String[]{"ESP001-A", "ESP001-B", "ESP001-C"};
+            for (String thisId : ids){
+                turnOff(thisId);
             }
 
+        } else {
 
-            @Override
-            public Map<String,String> getHeaders() throws AuthFailureError{
-                Map<String, String> params = new HashMap<>();
-                params.put("Content-Type","application/x-www-form-urlencoded");
-                return params;
-            }
-        };
+            final String deviceId = id;
 
-        requestQueue.add(stringRequest);
+            RequestQueue requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
+            String url = Secrets.IP + "database/toggleState.php";
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    if (response.equals("on")) {
+                        switch (deviceId) {
+                            case "ESP001-A":
+                                findViewById(R.id.statusA).setBackgroundColor(Color.GREEN);
+                                break;
+                            case "ESP001-B":
+                                findViewById(R.id.statusB).setBackgroundColor(Color.GREEN);
+                                break;
+                            case "ESP001-C":
+                                findViewById(R.id.statusC).setBackgroundColor(Color.GREEN);
+                                break;
+                        }
+
+                    } else {
+                        switch (deviceId) {
+                            case "ESP001-A":
+                                findViewById(R.id.statusA).setBackgroundColor(Color.RED);
+                                break;
+                            case "ESP001-B":
+                                findViewById(R.id.statusB).setBackgroundColor(Color.RED);
+                                break;
+                            case "ESP001-C":
+                                findViewById(R.id.statusC).setBackgroundColor(Color.RED);
+                                break;
+                        }
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    System.out.println(error.getMessage());
+                    Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }) {
+
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("id", deviceId);
+                    params.put("io", "0");
+                    return params;
+                }
+
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("Content-Type", "application/x-www-form-urlencoded");
+                    return params;
+                }
+            };
+
+            requestQueue.add(stringRequest);
+        }
     }
 
     private void setTimer(String id) {
@@ -305,5 +409,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+
 
 }
