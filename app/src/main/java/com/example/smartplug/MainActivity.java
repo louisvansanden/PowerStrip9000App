@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
     ImageButton refresh;
     
-    Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
         statusC = findViewById(R.id.statusC);
 
         refresh = findViewById(R.id.refresh);
-        
-        next = findViewById(R.id.next);
+
 
         checkStatusDevices();
 
@@ -137,47 +135,6 @@ public class MainActivity extends AppCompatActivity {
                 refreshView();
             }
         });
-        
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nextSong();
-            }
-        });
-
-    }
-
-
-    private void nextSong() {
-
-        final String token = "Bearer BQC_L_n9TYWTz5s3G1CKtymL8B9kUpSc-WDCtorpGRX4_lU816TLVeAB0KgOvVmEXqOEvFpaPYQPdnnuj-LRUK3rdvYA5ZN79AjP_FKuJlT_yfMcx51XdPMw1fN2exP0RHV3KFlEUSMQfyb7D-Jt68mMDiC8rDxashoWzbKAePuHO50VKOL3QfvlL5jLjTVtC9X7Yrr2V0DfshAi795OFR0XJNY3d9n0C0555XByjX7-GRuzwtp-A4Uip6qiSl_cHb3X3qFimWzuiXjG4rbAOXnJmnk";
-
-        RequestQueue requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
-        String url = "https://api.spotify.com/v1/me/player/play?device_id=a508fe7138f3947d91c06b0e63e85e5dc7bded30";
-        StringRequest stringRequest = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println(error.getMessage());
-                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        }){
-            @Override
-            public Map<String,String> getHeaders() throws AuthFailureError{
-                Map<String, String> params = new HashMap<>();
-                params.put("Content-Type","application/json");
-                params.put("Accept", "application/json");
-                params.put("Authorization", token);
-                return params;
-            }
-        };
-
-        requestQueue.add(stringRequest);
 
     }
 

@@ -151,14 +151,5 @@
         app:layout_constraintTop_toTopOf="@+id/page_title"
         app:srcCompat="@android:drawable/stat_notify_sync" />
 
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ESP001C" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
