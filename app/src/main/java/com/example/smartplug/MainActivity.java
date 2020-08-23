@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     ImageButton refresh;
 
+    Button rename;
+
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         refresh = findViewById(R.id.refresh);
 
+        rename = findViewById(R.id.renameBtn);
 
         checkStatusDevices();
 
@@ -142,6 +145,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        rename.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                renameDevice();
+            }
+        });
+
+    }
+
+    private void renameDevice() {
+        Intent intent = new Intent(this, renameDevice.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void refreshView() {

@@ -14,5 +14,10 @@
     <string name="timer">Timer</string>
     <string name="set_a_timer">Set a timer</string>
     <string name="refresh">refresh</string>
+    <string name="rename_device">Rename Device</string>
+    <string name="rename_a_device">Rename a device</string>
+    <string name="current_name_is">Current name is:</string>
+    <string name="new_name">New name</string>
+    <string name="rename">rename</string>
 
 </resources>

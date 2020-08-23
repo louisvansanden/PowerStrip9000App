@@ -152,5 +152,19 @@
         app:layout_constraintTop_toTopOf="@+id/page_title"
         app:srcCompat="@android:drawable/stat_notify_sync" />
 
+    <Button
+        android:id="@+id/renameBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/rename_device"
+        android:textColor="@android:color/primary_text_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ESP001C" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
