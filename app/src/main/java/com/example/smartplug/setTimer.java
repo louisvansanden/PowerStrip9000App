@@ -240,8 +240,17 @@ public class setTimer extends AppCompatActivity {
     }
 
     private void goBack(){
+
+        String hours = txtHourDec.getText().toString() + txtHourUnit.getText().toString();
+        String minutes = txtMinutesDec.getText().toString() + txtMinutesUnit.getText().toString();
+
+        String message = "Timer set for " + hours + " hours and " + minutes + " minutes.";
+
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     @Override

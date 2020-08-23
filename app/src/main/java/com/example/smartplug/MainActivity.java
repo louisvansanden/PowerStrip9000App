@@ -39,7 +39,13 @@ public class MainActivity extends AppCompatActivity {
     Button statusC;
 
     ImageButton refresh;
-    
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        checkStatusDevices();
+        getNames();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,8 +145,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void refreshView() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        checkStatusDevices();
+        getNames();
+        Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
     }
 
     private void getNames() {
@@ -229,6 +238,18 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case "ESP001-C":
                             findViewById(R.id.statusC).setBackgroundColor(Color.parseColor("#00FF00"));
+                            break;
+                    }
+                } else {
+                    switch (deviceId) {
+                        case "ESP001-A":
+                            findViewById(R.id.statusA).setBackgroundColor(Color.parseColor("#FF0000"));
+                            break;
+                        case "ESP001-B":
+                            findViewById(R.id.statusB).setBackgroundColor(Color.parseColor("#FF0000"));
+                            break;
+                        case "ESP001-C":
+                            findViewById(R.id.statusC).setBackgroundColor(Color.parseColor("#FF0000"));
                             break;
                     }
                 }
